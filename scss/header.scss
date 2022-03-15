@@ -1,0 +1,142 @@
+.header {
+  font-family: $fontFamily;
+  background-color: $mainColor;
+
+  &__content {
+    display: flex;
+    max-width: 1332px;
+    padding: 0px 12px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__menu {
+    padding: 10px 0;
+    height: 92px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    @media (max-width: ($md2+px)) {
+      height: 60px;
+    }
+  }
+  @media (min-width: ($md3+px)) {
+    margin-bottom: 50px;
+  }
+}
+.menu {
+  &__icon {
+
+  }
+  &__body {
+    @media (max-width: ($md3+px)) {
+      transform: translate(0px, -100%);
+      transition: transform 0.8s ease 0s;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: auto;
+      padding: 200px 10px 30px 10px;
+      background-color: $mainColor;
+      &._active {
+        transform: translate(0px, 0%);
+      }
+    }
+  }
+  &__first {
+    display: flex;
+    float: left;
+    height: 92px;
+    padding: 10px 0;
+    align-items: center;
+  }
+  &-first__link {
+    border: 1px solid #fff;
+    padding: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+  }
+  &__list {
+    li {
+      margin: 0px 0px 30px 0px;
+      &:last-child {
+        margin: 0px 0px 0px 0px;
+      }
+    }
+    @media(min-width: ($md3+px)) {
+      display: flex;
+      li {
+        margin: 0px 86px 0px 0px;
+      }
+    }
+  }
+  &__link {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    @media (min-width: ($md2+px)) {
+      &:hover {
+        border-bottom: 1px solid #fff;
+      }
+      &:focus {
+        border-bottom: 2px solid #fff;
+        font-weight: bold;
+      }
+    }
+    @media (max-width: ($md3+px)) {
+      font-size: 18px;
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+.icon-menu {
+  display: none;
+  @media (max-width: ($md3+px)) {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 5;
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      left: 0px;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+    }
+    &::before {
+      top: 0px;
+    }
+    &::after {
+      bottom: 0px;
+    }
+    span {
+      top: calc(50% - 1px);
+    }
+    &._active {
+      span {
+        transform: scale(0);
+      }
+      &::before {
+        transform: rotate(-45deg);
+        top: calc(50% - 1px);
+      }
+      &::after {
+        transform: rotate(45deg);
+        bottom: calc(50% - 1px);
+      }
+    }
+  }
+}
